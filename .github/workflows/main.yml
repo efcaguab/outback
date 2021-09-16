@@ -35,4 +35,4 @@ jobs:
           conda info
           conda list
 
-      - run: jupyter nbconvert --execute outback.ipynb
+      - run: python outback.py
