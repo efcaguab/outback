@@ -1,0 +1,11 @@
+name: outback
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - jupyter
+  - selenium
+  - python-chromedriver-binary 
+  - beautifulsoup4
+  - pandas
