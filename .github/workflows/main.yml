@@ -17,6 +17,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DISPLAY: :99
     defaults:
       run:
         shell: bash -l {0}
@@ -25,14 +27,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
       - uses: conda-incubator/setup-miniconda@v2
         with:
           environment-file: environment.yml
           activate-environment: outback
-      
       - run: |
           conda info
           conda list
+      - uses: nanasess/setup-chromedriver@master
+      - run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       - run: python outback.py
