@@ -28,3 +28,5 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           environment-file: environment.yml
+
+      - run: jupyter nbconvert --execute outback.ipynb
