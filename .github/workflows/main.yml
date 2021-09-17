@@ -41,3 +41,9 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
       - run: python outback.py
+
+      - run: python models.py
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: *.csv *.db
