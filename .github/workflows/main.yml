@@ -45,5 +45,3 @@ jobs:
       - run: python models.py
 
       - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          file_pattern: *.csv *.db

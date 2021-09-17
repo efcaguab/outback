@@ -30,7 +30,7 @@ df['discount'] = (df['predicted_price'] - df['price_total'])/df['predicted_price
 df.boxplot('discount', 'city', figsize=(10,30), vert = False)
 df.boxplot('discount', 'price_type', figsize=(10,30), vert = False)
 # %%
-df['discount' > 0]
+df.to_csv("model_results.csv")
 # %%
 deals = df[(df['discount'] > 0) & (df['price_total'] < 18500) & (df['kilometers'] < 200000) & (df['kilometers'] > 20000)]
 deals.sort_values('discount')
