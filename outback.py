@@ -1,6 +1,4 @@
-# To add a new cell, type '# %%'
-# To add a new markdown cell, type '# %% [markdown]'
-# %%
+# %% Import required libraries
 from selenium import webdriver
 import chromedriver_binary
 from bs4 import BeautifulSoup
@@ -12,7 +10,7 @@ from sqlalchemy.orm import sessionmaker
 from datetime import datetime, timezone
 
 
-# %%
+# %% Set up a sqlite table to store the information
 engine = create_engine('sqlite:///outback.db', echo = True)
 Base = declarative_base()
 
@@ -29,7 +27,6 @@ class Listing(Base):
     scraped_on = Column(DateTime)
 
 Base.metadata.create_all(engine)
-
 
 # %%
 # Selenium options

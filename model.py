@@ -34,5 +34,3 @@ df.to_csv("model_results.csv")
 # %%
 deals = df[(df['discount'] > 0) & (df['price_total'] < 18500) & (df['kilometers'] < 200000) & (df['kilometers'] > 20000)]
 deals.sort_values('discount')
-# %%
-deals.to_csv("deals.csv")
